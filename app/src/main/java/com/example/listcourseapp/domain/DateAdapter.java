@@ -1,6 +1,5 @@
 package com.example.listcourseapp.domain;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -21,6 +20,8 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+
+
 
     }
 
@@ -44,7 +45,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
 
         }
 
-        public void init(View view) {
+        public void init(@NonNull View view) {
 
             textViewDate = view.findViewById(R.id.tv_date);
             textViewCourse = view.findViewById(R.id.tv_course);
