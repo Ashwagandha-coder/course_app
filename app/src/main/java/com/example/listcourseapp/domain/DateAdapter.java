@@ -1,5 +1,7 @@
 package com.example.listcourseapp.domain;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -11,11 +13,30 @@ import com.example.listcourseapp.R;
 
 public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHolder> {
 
+    private int item;
+    private Context context;
+
+    public DateAdapter(int item, Context context) {
+        this.item = item;
+        this.context = context;
+    }
 
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        Context context = parent.getContext();
+        int Id = R.layout.inflater_recyclerview;
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        View view = layoutInflater.inflate(Id,parent,false);
+        CustomViewHolder customViewHolder = new CustomViewHolder(view);
+
+
+
+
+
+        return customViewHolder;
+
     }
 
     @Override
@@ -27,7 +48,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return item;
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
