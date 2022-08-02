@@ -45,6 +45,8 @@ public class RequestRetrofit {
             @Override
             public void onFailure(Call<List<Record>> call, Throwable t) {
 
+                //t.getMessage().toString();
+
             }
         });
 

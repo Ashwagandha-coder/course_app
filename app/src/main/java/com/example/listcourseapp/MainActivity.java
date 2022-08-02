@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public void init() {
 
         recyclerView = findViewById(R.id.rv_main);
+
         dateAdapter = new DateAdapter(22,this);
 
     }
@@ -40,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(dateAdapter);
 
 
+    }
 
+    public int getListSize() {
 
+        return 0;
 
     }
 
