@@ -10,6 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listcourseapp.R;
+import com.example.listcourseapp.data.Record;
+import com.example.listcourseapp.data.RequestRetrofit;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHolder> {
 
@@ -42,6 +47,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
 
+        holder.bind(position);
 
 
     }
@@ -50,6 +56,9 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
     public int getItemCount() {
         return item;
     }
+
+
+    public
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
@@ -73,10 +82,21 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
 
         }
 
-        public void bind(int date, int course) {
+        public void bind(int position) {
+
+            RequestRetrofit retrofit = new RequestRetrofit();
+
+            retrofit.request();
+            List<Record> arrayList = retrofit.getRecordList();
+
+            int date = arrayList.get(position).getDate();
+            int course = arrayList.get(position).getValue();
+
 
             textViewDate.setText(date);
             textViewCourse.setText(course);
+
+
 
         }
 
