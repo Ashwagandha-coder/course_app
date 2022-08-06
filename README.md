@@ -4,7 +4,8 @@
 
 - features 1
 
-![features_1](https://user-images.githubusercontent.com/58209188/183246237-a097b82e-4a08-4413-b2f1-aad33163cce3.gif)
+![features_1](https://user-images.githubusercontent.com/58209188/183246378-e7da2842-9d5a-42dd-b617-a8fefe3052f0.gif)
+
 
 - features 2
 
