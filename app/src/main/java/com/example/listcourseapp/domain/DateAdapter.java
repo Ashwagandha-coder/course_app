@@ -11,19 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.listcourseapp.R;
 import com.example.listcourseapp.data.Record;
+import com.example.listcourseapp.data.ValCurs;
 import com.example.listcourseapp.data.RequestRetrofit;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHolder> {
 
-    private int item;
-    private Context context;
 
-    public DateAdapter(int item, Context context) {
-        this.item = item;
-        this.context = context;
+    private List<Record> list;
+
+    public DateAdapter(List<Record> list) {
+        this.list = list;
+
+
     }
 
     @NonNull
@@ -38,8 +39,6 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
 
 
 
-
-
         return customViewHolder;
 
     }
@@ -47,14 +46,17 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
 
-        holder.bind(position);
+        Record record = list.get(position);
+
+        holder.textViewDate.setText(record.getDate());
+        holder.textViewCourse.setText(record.getValue());
 
 
     }
 
     @Override
     public int getItemCount() {
-        return item;
+        return list.size();
     }
 
 
@@ -69,8 +71,8 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
-
             init(itemView);
+
 
 
         }
@@ -87,14 +89,14 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.CustomViewHold
             RequestRetrofit retrofit = new RequestRetrofit();
 
             retrofit.request();
-            List<Record> arrayList = retrofit.getRecordList();
+          //  List<ValCurs> arrayList = retrofit.getRecordList();
 
-            int date = arrayList.get(position).getDate();
-            int course = arrayList.get(position).getValue();
+        //    int date = arrayList.get(position).getDate();
+         //   int course = arrayList.get(position).getValue();
 
 
-            textViewDate.setText(date);
-            textViewCourse.setText(course);
+        //    textViewDate.setText(date);
+        //    textViewCourse.setText(course);
 
 
 

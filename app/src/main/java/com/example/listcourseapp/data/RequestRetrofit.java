@@ -1,5 +1,9 @@
 package com.example.listcourseapp.data;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.listcourseapp.domain.DateAdapter;
+
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -10,6 +14,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 public class RequestRetrofit {
+
+
+    private DateAdapter dateAdapter;
+    private RecyclerView recyclerView;
+
 
     private List<Record> recordList;
 
@@ -23,39 +32,39 @@ public class RequestRetrofit {
 
         Api api = retrofit.create(Api.class);
 
-        Call<List<Record>> call = api.getMonthCourse();
+        Call<ValCurs> call = api.getCourse();
 
-        call.enqueue(new Callback<List<Record>>() {
-
+        call.enqueue(new Callback<ValCurs>() {
             @Override
-            public void onResponse(Call<List<Record>> call, Response<List<Record>> response) {
+            public void onResponse(Call<ValCurs> call, Response<ValCurs> response) {
 
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
 
-                    List<Record> list = response.body();
+                    ValCurs valCurs = response.body();
+                    recordList = valCurs.getList();
 
-                    recordList = list;
+
+
                 }
-                else
-                    response.errorBody();
+                else {
 
+                }
 
             }
 
             @Override
-            public void onFailure(Call<List<Record>> call, Throwable t) {
-
-                //t.getMessage().toString();
+            public void onFailure(Call<ValCurs> call, Throwable t) {
 
             }
         });
 
-
     }
+
 
     public List<Record> getRecordList() {
         return recordList;
     }
+
 
 
 }

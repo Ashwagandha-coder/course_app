@@ -1,38 +1,42 @@
 package com.example.listcourseapp.data;
 
+import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 @Root(name = "Record")
 public class Record {
 
-    public int getDate() {
-        return date;
+    public String getDate() {
+        return Date;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return Id;
     }
 
     public int getNominal() {
-        return nominal;
+        return Nominal;
     }
 
-    public int getValue() {
-        return value;
+    public String getValue() {
+        return Value;
     }
 
-    @Element(name = "Date")
-    private int date;
+    @Attribute(name = "Date",required = true)
+    private String Date;
 
-    @Element(name = "Id")
-    private int id;
+
+    @Attribute(name = "Id",required = false)
+    private String Id;
 
     @Element(name = "Nominal")
-    private int nominal;
+    private int Nominal;
 
     @Element(name = "Value")
-    private int value;
+    private String Value;
+
+    public Record() {}
 
 
 }
