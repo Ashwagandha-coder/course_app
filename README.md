@@ -2,9 +2,8 @@
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white)
 
-Примечание:
-Код забит гвоздями, но работает. Запрос на сервер каждые 10 сек. Выводится тоаст в завизимости от того есть ли изменения.
-Написано максимально просто.
+## Deprecated
+This repo is Deprecated
 
 
 - features 1
